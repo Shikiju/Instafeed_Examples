@@ -8,13 +8,13 @@
 	var feed = new Instafeed({
 		accessToken: InstagramToken,
 		template: `
-		<div class="et_pb_gallery_item et_pb_grid_item et_pb_bg_layout_light et_pb_gallery_item_0_{{id}}" style="display: block;">
-			<div class="et_pb_gallery_image portrait">
-				<a href="{{image}}" title="{{caption}}">
-					<img src="{{image}}" alt="{{caption}}" srcset="{{image}} 479w, {{image}} 480w" sizes="(max-width:479px) 479px, 100vw" />
-					<span class="et_overlay"></span>
-				</a>
-			</div>
+			<div class="et_pb_gallery_item et_pb_grid_item et_pb_bg_layout_light et_pb_gallery_item_0_{{id}}" style="display: block;">
+				<div class="et_pb_gallery_image portrait">
+					<a href="{{image}}" title="{{caption}}">
+						<img src="{{image}}" alt="{{caption}}" srcset="{{image}} 479w, {{image}} 480w" sizes="(max-width:479px) 479px, 100vw" />
+						<span class="et_overlay"></span>
+					</a>
+				</div>
 			</div>`,
 		transform: function(item) {
 			item.timestamp = new Date(item.timestamp).toLocaleString('nl-EU', {
