@@ -1,0 +1,30 @@
+<div class="et_pb_module et_pb_gallery et_pb_gallery_0  et_pb_bg_layout_light et_pb_gallery_grid">
+	<div class="et_pb_gallery_items et_post_gallery clearfix" data-per_page="23" id="instafeed">
+	</div>
+</div>
+<script src="instafeed.js"></script>
+<script type="text/javascript">
+  const InstagramToken = 'IGQVJWOEttS0F3V0ViNDJsYy1jdGozX0otb3Y1UUI4VTJEbmZAYWmZAWa0R6bFRXT3dOc2dQYTAyQlVoZAHJDRmI4RHd3WVJBc2Q0U1NCNjQ5UDhLQ3pTaWtaanNVVEVoMTBxTWdxbnY3X3BsMG81WE1fNwZDZD';
+	var feed = new Instafeed({
+		accessToken: InstagramToken,
+		template: `
+		<div class="et_pb_gallery_item et_pb_grid_item et_pb_bg_layout_light et_pb_gallery_item_0_{{id}}" style="display: block;">
+			<div class="et_pb_gallery_image portrait">
+				<a href="{{image}}" title="{{caption}}">
+					<img src="{{image}}" alt="{{caption}}" srcset="{{image}} 479w, {{image}} 480w" sizes="(max-width:479px) 479px, 100vw" />
+					<span class="et_overlay"></span>
+				</a>
+			</div>
+			</div>`,
+		transform: function(item) {
+			item.timestamp = new Date(item.timestamp).toLocaleString('nl-EU', {
+				weekday: 'long', 
+				year: 'numeric', 
+				month: 'long', 
+				day: 'numeric'
+			});
+		return item;
+		}
+	});
+	feed.run();
+</script>
